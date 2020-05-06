@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: config-demo    #工程名(在注册中心的页面看到的名字)
+  profiles:
+    active: native #启动从本地读取配置文件，必须指定active的值，才可以使用本地文件配置模式
+  cloud:
+    config:
+      server:
+        #git: 这里就不用git了直接采用本地
+        prefix: config #配置中心接口前缀
+        native:
+          addLabelLocations: true
+          searchLocations: file:./cloud_conf   #配置中心配置文件物理路径，请按本地环境修改
+
+server:
+  port: 8885  #端口号
+

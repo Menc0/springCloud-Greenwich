@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="configclient" />
+        <module name="configdemo" />
+        <module name="dashboard-demo" />
+        <module name="demoServer1" />
+        <module name="eureka" />
+        <module name="feignconsumer" />
+        <module name="ribbon-demo" />
+        <module name="server-demo" />
+        <module name="turbine-demo" />
+        <module name="zipkin-demo" />
+        <module name="zuul-gateway" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="demoServer" target="1.8" />
+      <module name="demoServer2" target="1.8" />
+      <module name="server-demo (1)" target="1.8" />
+      <module name="server-demo2" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="configclient" options="-parameters" />
+      <module name="configdemo" options="-parameters" />
+      <module name="dashboard-demo" options="-parameters" />
+      <module name="demoServer" options="-parameters" />
+      <module name="demoServer1" options="-parameters" />
+      <module name="demoServer2" options="-parameters" />
+      <module name="eureka" options="-parameters" />
+      <module name="feignconsumer" options="-parameters" />
+      <module name="ribbon-demo" options="-parameters" />
+      <module name="server-demo" options="-parameters" />
+      <module name="server-demo (1)" options="-parameters" />
+      <module name="server-demo2" options="-parameters" />
+      <module name="turbine-demo" options="-parameters" />
+      <module name="zipkin-demo" options="-parameters" />
+      <module name="zuul-gateway" options="-parameters" />
+    </option>
+  </component>
+</project>

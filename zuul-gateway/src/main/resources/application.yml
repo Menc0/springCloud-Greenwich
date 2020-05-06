@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: zuul-gateway   #工程名(在注册中心的页面看到的名字)
+server:
+  port: 8887  #端口号
+
+eureka:
+  client:
+    register-with-eureka: true  #是否注册(服务的提供者是需要注册到注册中心的) 默认就是true
+    fetch-registry: true   #是否获取注册信息
+    service-url:
+      defaultZone: http://localhost:8889/eureka/  #这里和注册中心的一样就能注册到注册中心
+  instance:
+    prefer-ip-address: true
+management: #允许访问/actuator/hystrix.stream
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+      cors:
+        allowed-origins: '*'
+        allowed-methods: '*'
+zuul:
+  # 表示启用限流策略，并且所有服务在3秒内只能有1次请求且所有请求时间总和不得超过2秒
+  ratelimit:
+    enabled: true
+    default-policy:
+      limit: 1
+      quota: 2
+      refresh-interval: 10
+  #ignored-services: server-demo # 需要忽视的服务(配置后将不会被路由)
+  routes:
+    #movie: # 可以随便写，在zuul上面唯一即可；当这里的值=service-id时，service-id可以不写。
+    #path: /movie/** # 想要映射到的路径
+    #service-id: microservice-consumer-movie-ribbon-with-hystrix # Eureka中的serviceId
+    api-a:
+      path: /api-a/**
+      serviceId: feign-demo
+    api-b:
+      path: /api-b/**
+      serviceId: ribbon-demo

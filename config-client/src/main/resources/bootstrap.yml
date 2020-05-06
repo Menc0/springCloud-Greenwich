@@ -1,0 +1,27 @@
+
+spring:
+  application:
+    name: config-client   #工程名(在注册中心的页面看到的名字)
+  cloud:
+    config:
+      failFast: true # true: 如果访问配置中心失败，则停止启动服务
+      #这个文件需要注意一下为什么使用bootstrap命名 ，主要是config客户端默认读取端口是8888，
+      #如果不命名bootstrap，那么下面URI无论写什么端口都是读取8888
+      uri: http://localhost:8885/config/
+      name: common
+      profile: dev
+
+server:
+  port: 8886  #端口号
+
+#配置文件访问刷新
+management:
+  endpoint:
+    refresh:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include:
+          - refresh
+
